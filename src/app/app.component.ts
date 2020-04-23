@@ -7,6 +7,7 @@ function userNameValidator(control: FormControl): { [s: string]: boolean } {
     return { invalidUser: true };
   }
 }
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,7 +23,7 @@ export class AppComponent {
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group({
       'userName': ['atlus', Validators.compose([Validators.required, userNameValidator])],
-      'password': ['', Validators.compose([Validators.required, Validators.minLength(5)])]
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(5)])],
     });
 
     this.userName = this.myForm.controls['userName'];
